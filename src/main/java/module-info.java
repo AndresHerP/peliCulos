@@ -6,6 +6,7 @@ module org.example.peliculascolab {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+    requires java.desktop;
 
     opens org.example.peliculascolab to javafx.fxml;
     exports org.example.peliculascolab;

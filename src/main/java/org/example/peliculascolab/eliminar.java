@@ -69,7 +69,7 @@ public class eliminar {
 
     private void eliminarPelicula() {
         if (selectedMovie != null) {
-            String wallet = "G:\\1-UTEZ\\3-Cuatrimestre\\POO\\Trabajos\\Semana12\\src\\Wallet"; // CAMBIAR LA DIRECCIÓN EN LA ENTREGA FINAL O CLONANDO
+            String wallet = "/home/alex/Documentos/Utez/3ro/Poo/BaseDatos/src/Wallet"; // CAMBIAR LA DIRECCIÓN EN LA ENTREGA FINAL O CLONANDO
             System.setProperty("oracle.net.tns_admin", wallet);
             String jdbcurl = "jdbc:oracle:thin:@icl8aqfau8e0bzlc_high";
             String userName = "ADMIN";

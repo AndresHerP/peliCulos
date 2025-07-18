@@ -23,7 +23,7 @@ public class Consulta {
     }
 
     private void loadDataFromDatabase() {
-        String ubicacionWallet = "C:\\Users\\Kishimuz\\Desktop\\trabajo_collab\\PeliculasEquipo\\src\\Wallet";
+        String ubicacionWallet = "/home/alex/Documentos/Utez/3ro/Poo/BaseDatos/src/Wallet";
         System.setProperty("oracle.net.tns_admin", ubicacionWallet);
         String jdbcurl = "jdbc:oracle:thin:@icl8aqfau8e0bzlc_high";
         String userName = "ADMIN";

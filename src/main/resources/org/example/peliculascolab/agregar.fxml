@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.peliculascolab.Agregar">
+   <children>
+      <Pane minHeight="600.0" minWidth="500.0" prefHeight="600.0" prefWidth="500.0">
+         <children>
+            <Label layoutX="226.0" layoutY="51.0" text="ID" />
+            <TextField fx:id="lbID" layoutX="169.0" layoutY="69.0" />
+
+            <Label layoutX="224.0" layoutY="134.0" text="Título" />
+            <TextField fx:id="lbTitulo" layoutX="169.0" layoutY="159.0" />
+
+            <Label layoutX="224.0" layoutY="231.0" text="Género" />
+            <TextField fx:id="lbGenero" layoutX="169.0" layoutY="257.0" />
+
+            <Label layoutX="224.0" layoutY="326.0" text="Año" />
+            <TextField fx:id="idAno" layoutX="169.0" layoutY="344.0" />
+
+            <Button fx:id="btnGuardar" layoutX="217.0" layoutY="416.0" mnemonicParsing="false" text="Guardar" onAction="#btnguardar"/>
+            <Button fx:id="btnRegresar" layoutX="32.0" layoutY="34.0" mnemonicParsing="false" text="Regresar" textFill="RED"/>
+            <Label fx:id="texExito" layoutX="170.0" layoutY="380.0" textFill="green"/>
+         </children>
+      </Pane>
+   </children>
+</VBox>
