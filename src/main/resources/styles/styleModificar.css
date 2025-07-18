@@ -1,0 +1,141 @@
+/* Estilos generales para la vista de modificación */
+.root {
+    -fx-background-color: #0f0c29; /* Fondo oscuro gradiente */
+    -fx-background-radius: 10;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Estilo para el VBox principal */
+.vbox {
+    -fx-background-color: linear-gradient(to bottom, #24243e, #302b63);
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: rgba(255,255,255,0.1);
+    -fx-border-width: 1;
+    -fx-padding: 30;
+    -fx-spacing: 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 15, 0, 0, 0);
+    -fx-max-width: 400;
+}
+
+/* Estilo para el título principal */
+.label {
+    -fx-text-fill: #f5af19; /* Dorado cinematográfico */
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0, 1, 1);
+    -fx-padding: 0 0 15 0;
+}
+
+/* Estilo para el ComboBox */
+.combo-box {
+    -fx-background-color: rgba(255,255,255,0.1);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-pref-width: 300;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #f5af19;
+    -fx-border-width: 0 0 2 0;
+    -fx-prompt-text-fill: #a7a9be;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+}
+
+.combo-box .list-view {
+    -fx-background-color: #302b63;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #f5af19;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #f5af19;
+}
+
+.combo-box:hover {
+    -fx-border-color: #ffd700;
+}
+
+/* Estilo para los campos de texto */
+.text-field {
+    -fx-background-color: rgba(255,255,255,0.1);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-pref-width: 300;
+    -fx-pref-height: 35;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #f5af19;
+    -fx-border-width: 0 0 2 0;
+    -fx-prompt-text-fill: #a7a9be;
+}
+
+.text-field:focused {
+    -fx-border-color: #00b4d8;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,180,216,0.3), 5, 0, 0, 0);
+}
+
+/* Estilo para el botón Modificar */
+.button {
+    -fx-background-color: #f5af19; /* Dorado */
+    -fx-text-fill: #0f0c29;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-pref-width: 150;
+    -fx-pref-height: 40;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5, 0, 0, 1);
+}
+
+.button:hover {
+    -fx-background-color: #ffd700; /* Dorado más brillante */
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.button:pressed {
+    -fx-background-color: #e6af05;
+    -fx-scale-x: 0.97;
+    -fx-scale-y: 0.97;
+}
+
+/* Estilo específico para el botón Regresar */
+#regresarBtn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f5af19 !important;
+    -fx-border-color: #f5af19;
+    -fx-border-width: 1;
+    -fx-border-radius: 15;
+    -fx-padding: 5 15;
+}
+
+#regresarBtn:hover {
+    -fx-background-color: rgba(245, 175, 25, 0.1);
+    -fx-text-fill: #ffd700 !important;
+    -fx-border-color: #ffd700;
+}
+
+/* Estilo para el label de estado */
+#statusLabel {
+    -fx-text-fill: #4CAF50; /* Verde para mensajes de éxito */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 0 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 2, 0, 1, 1);
+}
+
+/* Estilo para mensajes de error */
+.error-label {
+    -fx-text-fill: #e94560 !important; /* Rojo para errores */
+}
+
+.root {
+    -fx-background-image: url('movie-background-collage.jpg');
+    -fx-background-size: cover;
+}

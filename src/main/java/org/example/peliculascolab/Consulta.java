@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,7 +24,7 @@ public class Consulta {
     }
 
     private void loadDataFromDatabase() {
-        String ubicacionWallet = "/home/alex/Documentos/Utez/3ro/Poo/BaseDatos/src/Wallet";
+        String ubicacionWallet = "C:\\Users\\Kishimuz\\Desktop\\prueba\\peliCulos\\src\\Wallet";
         System.setProperty("oracle.net.tns_admin", ubicacionWallet);
         String jdbcurl = "jdbc:oracle:thin:@icl8aqfau8e0bzlc_high";
         String userName = "ADMIN";
@@ -73,5 +74,11 @@ public class Consulta {
         public String getTitulo() { return titulo; }
         public String getGenero() { return genero; }
         public int getAnio() { return anio; }
+    }
+
+    @FXML
+    protected void volverMenu() {
+        Stage stage = (Stage) movieTable.getScene().getWindow();
+        stage.close();
     }
 }

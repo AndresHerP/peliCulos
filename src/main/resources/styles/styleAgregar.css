@@ -1,0 +1,117 @@
+/* Estilos generales para la vista de agregar película */
+.root {
+    -fx-background-color: #1a1a2e; /* Fondo oscuro elegante */
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Estilo para el VBox principal */
+.vbox {
+    -fx-background-color: linear-gradient(to bottom, #16213e, #0f3460);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);
+}
+
+/* Estilo para el panel contenedor */
+.pane {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-background-radius: 15;
+    -fx-border-color: rgba(255, 255, 255, 0.1);
+    -fx-border-radius: 15;
+    -fx-border-width: 1;
+}
+
+/* Estilo para las etiquetas */
+.label {
+    -fx-text-fill: white; /* Color rojo vibrante */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 2, 0, 1, 1);
+}
+
+/* Estilo para los campos de texto */
+.text-field {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-text-fill: #f1f1f1;
+    -fx-font-size: 14px;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 30px;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #e94560;
+    -fx-border-width: 0 0 2 0;
+    -fx-prompt-text-fill: #a8a8a8;
+}
+
+.text-field:focused {
+    -fx-border-color: #00b4d8; /* Azul claro cuando está enfocado */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,180,216,0.3), 5, 0, 0, 0);
+}
+
+/* Estilo para el botón Guardar */
+#btnGuardar {
+    -fx-background-color: #00b4d8; /* Azul claro */
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-pref-width: 120px;
+    -fx-pref-height: 40px;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5, 0, 0, 1);
+}
+
+#btnGuardar:hover {
+    -fx-background-color: #0096c7; /* Azul más oscuro */
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+#btnGuardar:pressed {
+    -fx-background-color: #0077b6; /* Azul más intenso */
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+/* Estilo para el botón Regresar */
+#btnRegresar {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e94560 !important; /* Rojo vibrante */
+    -fx-font-size: 14px;
+    -fx-border-color: #e94560;
+    -fx-border-width: 1;
+    -fx-border-radius: 15;
+    -fx-padding: 5 15 5 15;
+    -fx-cursor: hand;
+}
+
+#btnRegresar:hover {
+    -fx-background-color: rgba(233, 69, 96, 0.1); /* Fondo rojo muy tenue */
+    -fx-text-fill: #ff6b81 !important; /* Rojo más claro */
+    -fx-border-color: #ff6b81;
+}
+
+#btnRegresar:pressed {
+    -fx-background-color: rgba(233, 69, 96, 0.2);
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+/* Estilo para el mensaje de éxito */
+#texExito {
+    -fx-text-fill: #4CAF50 !important; /* Verde para éxito */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 2, 0, 1, 1);
+}
+
+/* Estilo para el foco en los campos */
+.text-field:focused {
+    -fx-border-color: #00b4d8;
+    -fx-border-width: 0 0 2 0;
+    -fx-prompt-text-fill: derive(-fx-control-inner-background, -30%);
+}
+
+.root {
+    -fx-background-image: url('movie-background-collage.jpg');
+    -fx-background-size: cover;
+}

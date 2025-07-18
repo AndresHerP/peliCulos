@@ -1,98 +1,101 @@
 package org.example.peliculascolab;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class eliminar {
-    // Componentes FXML
-    @FXML
-    private MenuButton menuButton;
-    @FXML
-    private Label nombrePeli;
-    @FXML
-    private Button eliminarButton;
+    private static final String JDBC_URL = "jdbc:oracle:thin:@icl8aqfau8e0bzlc_high";
+    private static final String USERNAME = "ADMIN";
+    private static final String PASSWORD = "Biblioteca01";
 
-    // Datos de películas
-    private ObservableList<Consulta.Movie> movieData = FXCollections.observableArrayList();
-    private String selectedMovie;
+    @FXML private TextField idField;
+    @FXML private Label tituloLabel;
+    @FXML private Label generoLabel;
+    @FXML private Label anioLabel;
+    @FXML private Label mensajeLabel;
 
-    @FXML
-    public void initialize() {
-        loadDataFromDatabase();
-        eliminarButton.setOnAction(event -> eliminarPelicula());
+    static {
+        String ubicacionWallet = "C:\\Users\\Kishimuz\\Desktop\\prueba\\peliCulos\\src\\Wallet";
+        System.setProperty("oracle.net.tns_admin", ubicacionWallet);
     }
 
-    private void loadDataFromDatabase() {
-        String wallet = "G:\\1-UTEZ\\3-Cuatrimestre\\POO\\Trabajos\\Semana12\\src\\Wallet"; // CAMBIAR LA DIRECCIÓN EN LA ENTREGA FINAL O CLONANDO
-        System.setProperty("oracle.net.tns_admin", wallet);
-        String jdbcurl = "jdbc:oracle:thin:@icl8aqfau8e0bzlc_high";
-        String userName = "ADMIN";
-        String password = "Biblioteca01";
+    @FXML
+    private void buscarPelicula() {
+        String id = idField.getText().trim();
 
-        try {
-            Class.forName("oracle.jdbc.OracleDriver");
-            Connection con = DriverManager.getConnection(jdbcurl, userName, password);
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM peliculas");
+        if (id.isEmpty()) {
+            mensajeLabel.setText("Por favor ingrese un ID de película");
+            return;
+        }
 
-            while (rs.next()) {
-                String movieTitle = rs.getString(2);
-                MenuItem menuItem = new MenuItem(movieTitle);
-                menuItem.setOnAction(event -> seleccionarPelicula(movieTitle));
-                menuButton.getItems().add(menuItem);
+        try (Connection conn = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD)) {
+            String sql = "SELECT titulo, genero, año FROM peliculas WHERE id = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, Integer.parseInt(id));
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                tituloLabel.setText(rs.getString("titulo"));
+                generoLabel.setText(rs.getString("genero"));
+                anioLabel.setText(String.valueOf(rs.getInt("año")));
+                mensajeLabel.setText("");
+            } else {
+                mensajeLabel.setText("No se encontró una película con ese ID");
+                limpiarCampos();
             }
-
-            rs.close();
-            stmt.close();
-            con.close();
-
-        } catch (Exception e) {
-            System.out.println("Error al cargar datos:");
+        } catch (NumberFormatException e) {
+            mensajeLabel.setText("El ID debe ser un número");
+            limpiarCampos();
+        } catch (SQLException e) {
+            mensajeLabel.setText("Error al conectar con la base de datos: " + e.getMessage());
+            limpiarCampos();
             e.printStackTrace();
         }
     }
 
-    private void seleccionarPelicula(String movieTitle) {
-        selectedMovie = movieTitle;
-        nombrePeli.setText("Se eliminara la pelicula: " + selectedMovie);
+    @FXML
+    private void eliminarPelicula() {
+        String id = idField.getText().trim();
+
+        if (id.isEmpty() || tituloLabel.getText().isEmpty()) {
+            mensajeLabel.setText("Busque una película primero");
+            return;
+        }
+
+        try (Connection conn = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD)) {
+            String sql = "DELETE FROM peliculas WHERE id = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, Integer.parseInt(id));
+
+            int filasAfectadas = stmt.executeUpdate();
+
+            if (filasAfectadas > 0) {
+                mensajeLabel.setText("Película eliminada exitosamente");
+                limpiarCampos();
+                idField.setText("");
+            } else {
+                mensajeLabel.setText("No se pudo eliminar la película");
+            }
+        } catch (SQLException e) {
+            mensajeLabel.setText("Error al eliminar la película: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
-    private void eliminarPelicula() {
-        if (selectedMovie != null) {
-            String wallet = "/home/alex/Documentos/Utez/3ro/Poo/BaseDatos/src/Wallet"; // CAMBIAR LA DIRECCIÓN EN LA ENTREGA FINAL O CLONANDO
-            System.setProperty("oracle.net.tns_admin", wallet);
-            String jdbcurl = "jdbc:oracle:thin:@icl8aqfau8e0bzlc_high";
-            String userName = "ADMIN";
-            String password = "Biblioteca01";
+    private void limpiarCampos() {
+        tituloLabel.setText("");
+        generoLabel.setText("");
+        anioLabel.setText("");
+    }
 
-            try {
-                Class.forName("oracle.jdbc.OracleDriver");
-                Connection con = DriverManager.getConnection(jdbcurl, userName, password);
-                Statement stmt = con.createStatement();
-                stmt.executeUpdate("DELETE FROM peliculas WHERE titulo = '" + selectedMovie + "'");
-                stmt.close();
-                con.close();
-
-                nombrePeli.setText("Película eliminada: " + selectedMovie);
-                selectedMovie = null;
-                menuButton.getItems().clear();
-                loadDataFromDatabase();
-            } catch (Exception e) {
-                System.out.println("Error al eliminar la película:");
-                e.printStackTrace();
-            }
-        } else {
-            nombrePeli.setText("No se ha seleccionado ninguna película.");
-        }
+    @FXML
+    protected void volverMenu() {
+        Stage stage = (Stage) idField.getScene().getWindow();
+        stage.close();
     }
 }

@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.peliculascolab.Agregar">
+<VBox stylesheets="@../../../styles/styleAgregar.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.peliculascolab.Agregar">
    <children>
       <Pane minHeight="600.0" minWidth="500.0" prefHeight="600.0" prefWidth="500.0">
          <children>
@@ -19,9 +19,9 @@
             <Label layoutX="224.0" layoutY="326.0" text="Año" />
             <TextField fx:id="idAno" layoutX="169.0" layoutY="344.0" />
 
-            <Button fx:id="btnGuardar" layoutX="217.0" layoutY="416.0" mnemonicParsing="false" text="Guardar" onAction="#btnguardar"/>
-            <Button fx:id="btnRegresar" layoutX="32.0" layoutY="34.0" mnemonicParsing="false" text="Regresar" textFill="RED"/>
-            <Label fx:id="texExito" layoutX="170.0" layoutY="380.0" textFill="green"/>
+            <Button fx:id="btnGuardar" layoutX="217.0" layoutY="416.0" mnemonicParsing="false" onAction="#btnguardar" text="Guardar" />
+            <Button fx:id="btnRegresar" layoutX="32.0" layoutY="34.0" mnemonicParsing="false" onAction="#volverMenu" text="Regresar" textFill="#221616" />
+            <Label fx:id="texExito" layoutX="170.0" layoutY="380.0" textFill="green" />
          </children>
       </Pane>
    </children>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="10" stylesheets="@../../../styles/styleModificar.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.peliculascolab.EditarController">
+
+    <Label text="Modificar Película" />
+    <ComboBox fx:id="peliculaComboBox" promptText="Selecciona una película" />
+    <TextField fx:id="nuevoTituloField" promptText="Nuevo título" />
+    <TextField fx:id="nuevoGeneroField" promptText="Nuevo género" />
+    <TextField fx:id="nuevoAnioField" promptText="Nuevo año" />
+    <Button onAction="#modificarPelicula" text="Modificar" />
+   <Button mnemonicParsing="false" onAction="#volverMenu" text="Regresar" />
+    <Label fx:id="statusLabel" />
+</VBox>

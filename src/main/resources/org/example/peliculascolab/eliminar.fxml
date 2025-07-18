@@ -1,41 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <Label prefHeight="112.0" prefWidth="322.0" text="Busque la película a eliminar" textAlignment="CENTER" wrapText="true">
-            <font>
-                <Font name="Baskerville Old Face" size="30.0" />
-            </font>
-        </Label>
-        <VBox prefHeight="37.0" prefWidth="400.0" />
-        <MenuButton fx:id="menuButton" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="34.0" prefWidth="288.0" text="Película" textAlignment="CENTER">
-            <font>
-                <Font name="Baskerville Old Face" size="17.0" />
-            </font>
-        </MenuButton>
-        <VBox prefHeight="23.0" prefWidth="400.0" />
-        <Label text="Se eliminara la película..." textAlignment="CENTER">
-            <font>
-                <Font name="Baskerville Old Face" size="16.0" />
-            </font>
-        </Label>
-        <VBox alignment="CENTER" prefHeight="35.0" prefWidth="400.0">
-            <children>
-                <Label fx:id="nombrePeli" text="..." textAlignment="CENTER">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-            </children>
-        </VBox>
-        <Button fx:id="eliminarButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="102.0" text="Eliminar" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
-            <font>
-                <Font name="Baskerville Old Face" size="18.0" />
-            </font>
-        </Button>
-    </children>
+<VBox stylesheets="@../../../styles/styleModificar.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.peliculascolab.eliminar">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+    <spacing>15</spacing>
+
+    <Text fill="#fcfafa" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Eliminar Película" />
+
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="30" />
+            <ColumnConstraints percentWidth="70" />
+        </columnConstraints>
+
+        <Label text="ID de la Película:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="idField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="Título:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Label fx:id="tituloLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="Género:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Label fx:id="generoLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Label text="Año:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <Label fx:id="anioLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+
+    <HBox spacing="10">
+        <Button onAction="#buscarPelicula" text="Buscar" />
+        <Button onAction="#eliminarPelicula" style="-fx-base: #ff4444;" text="Eliminar" />
+    </HBox>
+   <Button mnemonicParsing="false" onAction="#volverMenu" text="Regresar" />
+
+    <Label fx:id="mensajeLabel" style="-fx-text-fill: red;" />
 </VBox>

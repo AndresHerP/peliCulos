@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.cell.PropertyValueFactory?>
-<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.peliculascolab.Consulta">
+<VBox stylesheets="@../../../styles/styleConsulta.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.peliculascolab.Consulta">
+   <Button mnemonicParsing="false" onAction="#volverMenu" text="Regresar" />
     <TableView fx:id="movieTable">
         <columns>
-            <TableColumn text="ID" prefWidth="50">
+            <TableColumn prefWidth="50" text="ID">
                 <cellValueFactory>
                     <PropertyValueFactory property="id" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Título" prefWidth="200">
+            <TableColumn prefWidth="200" text="Título">
                 <cellValueFactory>
                     <PropertyValueFactory property="titulo" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Genero" prefWidth="150">
+            <TableColumn prefWidth="150" text="Genero">
                 <cellValueFactory>
                     <PropertyValueFactory property="genero" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Año" prefWidth="80">
+            <TableColumn prefWidth="80" text="Año">
                 <cellValueFactory>
                     <PropertyValueFactory property="anio" />
                 </cellValueFactory>
@@ -30,4 +31,3 @@
         </columns>
     </TableView>
 </VBox>
-

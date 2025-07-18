@@ -6,6 +6,8 @@ import javafx.scene.control.TextField;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import javafx.stage.Stage;
+
 
 public class Agregar {
 
@@ -27,7 +29,7 @@ public class Agregar {
         String genero = lbGenero.getText();
         String ano = idAno.getText();
 
-        String ubicacionWallet = "/home/alex/Documentos/Utez/3ro/Poo/BaseDatos/src/Wallet";
+        String ubicacionWallet = "C:\\Users\\Kishimuz\\Desktop\\prueba\\peliCulos\\src\\Wallet";
         System.setProperty("oracle.net.tns_admin", ubicacionWallet);
         String jdbcurl = "jdbc:oracle:thin:@icl8aqfau8e0bzlc_high";
         String userName = "ADMIN";
@@ -53,5 +55,11 @@ public class Agregar {
             e.printStackTrace();
         }
 
+    }
+
+    @FXML
+    protected void volverMenu() {
+        Stage stage = (Stage) lbTitulo.getScene().getWindow();
+        stage.close();
     }
 }
