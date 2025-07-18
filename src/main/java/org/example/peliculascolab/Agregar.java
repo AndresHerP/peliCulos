@@ -29,7 +29,7 @@ public class Agregar {
         String genero = lbGenero.getText();
         String ano = idAno.getText();
 
-        String ubicacionWallet = "C:\\Users\\Kishimuz\\Desktop\\prueba\\peliCulos\\src\\Wallet";
+        String ubicacionWallet = "src/Wallet/";
         System.setProperty("oracle.net.tns_admin", ubicacionWallet);
         String jdbcurl = "jdbc:oracle:thin:@icl8aqfau8e0bzlc_high";
         String userName = "ADMIN";

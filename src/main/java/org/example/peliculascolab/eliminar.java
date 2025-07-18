@@ -19,7 +19,7 @@ public class eliminar {
     @FXML private Label mensajeLabel;
 
     static {
-        String ubicacionWallet = "C:\\Users\\Kishimuz\\Desktop\\prueba\\peliCulos\\src\\Wallet";
+        String ubicacionWallet = "src/Wallet/";
         System.setProperty("oracle.net.tns_admin", ubicacionWallet);
     }
 

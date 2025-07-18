@@ -94,7 +94,7 @@ public class EditarController {
     }
 
     private Connection getConexion() throws Exception {
-        String wallet = "C:\\Users\\Kishimuz\\Desktop\\prueba\\peliCulos\\src\\Wallet";
+        String wallet = "src/Wallet/";
         System.setProperty("oracle.net.tns_admin", wallet);
         String jdbcurl = "jdbc:oracle:thin:@icl8aqfau8e0bzlc_high";
         String userName = "ADMIN";
